@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 // import font awesome icons
 import { faHome, faList, faCog } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
   const links = [
     {
       name: "Home",
@@ -22,6 +22,9 @@ export default function Navbar() {
       icon: faCog,
     },
   ];
+  function closeSidebar() {
+    setShowSidebar(false);
+  }
   return (
     <>
       <div className="navbar container">
@@ -44,7 +47,7 @@ export default function Navbar() {
           <div className="bar"></div>
         </div>
       </div>
-      {showSidebar && <Sidebar links={links} />}
+      {showSidebar && <Sidebar close={closeSidebar} links={links} />}
     </>
   );
 }
