@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+
 function App() {
   const url = "https://spoonacular.com/food-api/docs";
   return (
