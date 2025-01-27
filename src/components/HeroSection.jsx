@@ -1,20 +1,20 @@
 import CustomeImage from "./CustomeImages";
 export default function HeroSection() {
   const images = [
-    "/images/img/gallery/img_1.jpg",
-    "/images/img/gallery/img_2.jpg",
-    "/images/img/gallery/img_3.jpg",
-    "/images/img/gallery/img_4.jpg",
-    "/images/img/gallery/img_5.jpg",
-    "/images/img/gallery/img_6.jpg",
-    "/images/img/gallery/img_7.jpg",
-    "/images/img/gallery/img_8.jpg",
-    "/images/img/gallery/img_9.jpg",
+    "/img/gallery/img_1.jpg",
+    "/img/gallery/img_2.jpg",
+    "/img/gallery/img_3.jpg",
+    "/img/gallery/img_4.jpg",
+    "/img/gallery/img_5.jpg",
+    "/img/gallery/img_6.jpg",
+    "/img/gallery/img_7.jpg",
+    "/img/gallery/img_8.jpg",
+    "/img/gallery/img_9.jpg",
   ];
   return (
     <>
-      <div className="section">
-        <div className="col">
+      <div className="section hero">
+        <div className="col typography">
           <h1 className="title">
             What are we <span>eat?</span>
           </h1>
@@ -29,7 +29,7 @@ export default function HeroSection() {
         </div>
         <div className="col gallery">
           {images.map((src, index) => (
-            <CustomeImage key={index} imgSrc={src} pt={"85%"} />
+            <CustomeImage key={index} imgSrc={src} pt={"90%"} />
           ))}
         </div>
       </div>
