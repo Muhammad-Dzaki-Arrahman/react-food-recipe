@@ -1,12 +1,15 @@
 import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
 
 function App() {
   const url = "https://spoonacular.com/food-api/docs";
   return (
     <>
-      <Navbar />
-      <div className="">
-        <h1>Hello, It's Me!</h1>
+      <div className="app">
+        <Navbar />
+        <div className="container main">
+          <HeroSection />
+        </div>
       </div>
     </>
   );
