@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ImproveSkills from "./components/ImproveSkills";
 import QuoteSection from "./components/QuoteSection";
-
+import ChiefSection from "./components/ChiefSection";
 function App() {
   const url = "https://spoonacular.com/food-api/docs";
   return (
@@ -13,6 +13,7 @@ function App() {
           <HeroSection />
           <ImproveSkills />
           <QuoteSection />
+          <ChiefSection />
         </div>
       </div>
     </>
