@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 
 // import font awesome icons
 import { faHome, faList, faCog } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 55) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const links = [
     {
       name: "Home",
@@ -27,7 +43,7 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="navbar container">
+      <div className={`navbar container ${isScrolled ? "scrolled" : ""}`}>
         <a href="#!" className="logo">
           T<span>aste</span>Quest
         </a>
@@ -40,7 +56,9 @@ export default function Navbar() {
         </div>
         <div
           onClick={() => setShowSidebar(!showSidebar)}
-          className={showSidebar ? "sidebar-btn active" : "sidebar-btn"}
+          className={
+            showSidebar ? "sidebar-btn active" : "sidebar-btn inactive"
+          }
         >
           <div className="bar"></div>
           <div className="bar"></div>

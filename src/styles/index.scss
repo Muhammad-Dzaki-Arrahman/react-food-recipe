@@ -18,6 +18,7 @@
 }
 body {
   font-size: var(--font-size);
+  padding-top: 55px;
 }
 a {
   text-decoration: none;
@@ -61,6 +62,7 @@ img {
 
 .section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 5vw;
   .title {
@@ -83,68 +85,25 @@ img {
 @import "partials/hero-section.scss";
 @import "partials/improve-skill.scss";
 @import "partials/quote-section.scss";
+@import "partials/chief-card.scss";
 
-.section.chiefs {
-  display: block;
-  .top-chiefs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 1.5em;
-    margin-top: 3em;
-  }
-}
-.chief-card {
-  display: flex;
-  height: 120px;
-  background-color: var(--background-color);
-  border-radius: 5px;
-  overflow: hidden;
-  img {
-    height: 100%;
-    width: 120px;
-    border-radius: 5px;
-    box-shadow: 0 3px 6px var(--shadow-color);
-  }
-  transform: translateX(100%);
-  opacity: 0;
-  animation: getAnimationDuration(0.4s) slideInRight forwards;
-  @for $i from 2 through 7 {
-    &:nth-child(#{$i}) {
-      animation-delay: #{$i * 0.1}s;
+.footer {
+  background-color: #0f0f0f;
+  color: #fff;
+  padding-block: 3em;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-gap: 1em;
+  .footer-section {
+    p {
+      opacity: 0.8;
+      mask-border: 0.5em;
     }
-  }
-  .chief-card-info {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 0.5em;
-    padding-left: 1em;
-
-    .chief-card-name {
-      font-size: 1.5em;
+    p.title {
+      opacity: 1;
+      font-size: 1.1em;
       font-weight: bold;
-      color: var(--text-color);
-    }
-    .chief-recipe-count,
-    .chief-cuisine {
-      font-size: 1.2em;
-      color: var(--text-light);
-    }
-    .chief-icons {
-      font-size: 1.2em;
-      svg {
-        margin-right: 0.5em;
-        &:nth-child(1) {
-          color: #0063f7;
-        }
-        &:nth-child(2) {
-          color: #13b4ff;
-        }
-        &:nth-child(3) {
-          color: #ff0056;
-        }
-      }
+      margin-bottom: 1em;
     }
   }
 }
@@ -152,45 +111,20 @@ img {
 .main {
   padding-block: 3vw;
 }
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 260px;
-  background-color: var(--background-color);
-  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.2), 3px 0 5px var(--shadow-color);
-  animation: getAnimationDuration(0.3s) slideInLeft;
-  .sidebar-link {
-    display: block;
-    padding: 0.5em 1em;
-    border-left: 0.4em solid transparent;
-    margin-bottom: 1em;
-    color: var(--text-color);
-    font-size: 1.1em;
-    transform: translateX(-100%);
-    animation: getAnimationDuration(0.3s) slideInLeft forwards;
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
-      }
-    }
-    &.active {
-      border-left-color: var(--primary-color);
-    }
-    &.hover {
-      border-left-color: var(--primary-color);
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-    svg {
-      width: 1.2em;
-      margin-right: 0.5em;
-    }
+@import "partials/sidebar.scss";
+.container {
+  padding-inline: 18vw;
+  font-family: "Helvetica", sans-serif;
+}
+@media screen and (max-width: 1280px) {
+  .container {
+    padding-inline: 10vw;
   }
 }
-.container {
-  padding-inline: 12vw;
-  font-family: "Helvetica", sans-serif;
+@media screen and (max-width: 1050px) {
+  .container {
+    padding-inline: 8vw;
+  }
 }
 @import "partials/animation.scss";
 @media screen and (max-width: 768px) {
@@ -201,8 +135,43 @@ img {
     .sidebar-btn {
       display: block;
     }
-    .chief-card {
-      box-shadow: 0 5px 10px var(--shadow-color);
+  }
+  .section {
+    .col {
+      width: 100%;
+      padding: 0 !important;
+      text-align: center;
+      margin-bottom: 2em;
     }
+  }
+  .skill-item {
+    display: inline-block;
+    margin: 0.75em;
+  }
+  .section.improve-skills .btn {
+    display: block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .chief-card {
+    box-shadow: 0 5px 10px var(--shadow-color);
+  }
+  .container {
+    padding-inline: 6vw;
+  }
+  .footer {
+    grid-template-columns: repeat(4, 1fr);
+    .footer-section:nth-child(1) {
+      grid-column: span 4;
+    }
+    .footer-section:nth-child(2),
+    .footer-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    padding-inline: 3vw;
   }
 }
