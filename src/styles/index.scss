@@ -19,6 +19,7 @@
 body {
   font-size: var(--font-size);
   padding-top: 55px;
+  background-color: var(--background-light);
 }
 a {
   text-decoration: none;
@@ -81,33 +82,65 @@ img {
   .col {
     width: 50%;
   }
+  &.d-block {
+    display: block;
+  }
 }
 @import "partials/hero-section.scss";
 @import "partials/improve-skill.scss";
 @import "partials/quote-section.scss";
 @import "partials/chief-card.scss";
+@import "partials/previous-search.scss";
+@import "partials/recipes.scss";
+@import "partials/footer.scss";
 
-.footer {
-  background-color: #0f0f0f;
-  color: #fff;
-  padding-block: 3em;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-gap: 1em;
-  .footer-section {
-    p {
-      opacity: 0.8;
-      mask-border: 0.5em;
+.options-container {
+  box-shadow: 0 5px 10px var(--shadow-color);
+  padding: 1em;
+  border-radius: 5px;
+  border-left: 0.5em solid var(--primary-color);
+  background-color: var(--background-light);
+  margin-top: 1em;
+  display: flex;
+  gap: 1em;
+  .option {
+    height: 3.5em;
+    width: 3.5em;
+    box-shadow: 0 3px 6px var(--shadow-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.light {
+      background-color: #fff;
     }
-    p.title {
-      opacity: 1;
-      font-size: 1.1em;
-      font-weight: bold;
-      margin-bottom: 1em;
+    &.dark {
+      background-color: rgb(29, 29, 29);
+    }
+    .check {
+      height: 2.5em;
+      width: 2.5em;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px var(--shadow-color);
+      svg {
+        height: 1.5em;
+        width: 1.5em;
+      }
     }
   }
+  .btn span {
+    display: inline-block;
+    margin-left: 0.5em;
+  }
 }
-
+.d-block h2 {
+  font-size: 1.75em;
+  color: var(--text-color);
+}
 .main {
   padding-block: 3vw;
 }

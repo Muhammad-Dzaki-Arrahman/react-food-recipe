@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 
@@ -6,7 +7,7 @@ import { faHome, faList, faCog } from "@fortawesome/free-solid-svg-icons";
 export default function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const location = useLocation();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 55) {
@@ -44,14 +45,18 @@ export default function Navbar() {
   return (
     <>
       <div className={`navbar container ${isScrolled ? "scrolled" : ""}`}>
-        <a href="#!" className="logo">
+        <Link to="/" className="logo">
           T<span>aste</span>Quest
-        </a>
+        </Link>
         <div className="nav-links">
           {links.map((link) => (
-            <a href={link.path} key={link.name}>
+            <Link
+              className={location.pathname === link.path ? "active" : ""}
+              to={link.path}
+              key={link.name}
+            >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
         <div
